@@ -47,7 +47,7 @@ class App extends Component {
     this.setState({ loading: true });
 
     const res = await axios.get(
-      `https://api.github.com/users?q=${username}&client_id=${
+      `https://api.github.com/users/${username}?client_id=${
         process.env.REACT_APP_GITHUB_CLIENT_ID
       }&client_secret=${process.env.REACT_APP_GITHUB_CLIENT_SECRET}`
     );
@@ -56,9 +56,7 @@ class App extends Component {
   };
 
   // Clear users from state
-  clearUsers = () => {
-    this.setState({ users: [], loading: false });
-  };
+  clearUsers = () => this.setState({ users: [], loading: false });
 
   // Set Alert
   setAlert = (msg, type) => {
@@ -101,7 +99,7 @@ class App extends Component {
                   <User
                     {...props}
                     getUser={this.getUser}
-                    user={User}
+                    user={user}
                     loading={loading}
                   />
                 )}
