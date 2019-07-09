@@ -37,7 +37,7 @@ const Search = () => {
           className='btn btn-light btn-block'
           onClick={githubContext.clearUsers}
         >
-          Clear
+          Clear Search Results
         </button>
       )}
     </div>
